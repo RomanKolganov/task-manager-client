@@ -8,6 +8,10 @@ export const createProject = (project, history) => async dispatch => {
       project
     );
     history.push("/dashboard");
+    dispatch({
+      type: GET_ERRORS,
+      payload: {}
+    });
   } catch (error) {
     dispatch({
       type: GET_ERRORS,
@@ -25,11 +29,15 @@ export const getProjects = () => async dispatch => {
 };
 
 export const getProject = (identifier, history) => async dispatch => {
-  const response = await axios.get(
-    `http://localhost:8080/api/project/${identifier}`
-  );
-  dispatch({
-    type: GET_PROJECT,
-    payload: response.data
-  });
+  try {
+    const response = await axios.get(
+      `http://localhost:8080/api/project/${identifier}`
+    );
+    dispatch({
+      type: GET_PROJECT,
+      payload: response.data
+    });
+  } catch (error) {
+    history.push("/dashboard");
+  }
 };
