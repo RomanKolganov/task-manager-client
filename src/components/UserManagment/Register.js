@@ -70,7 +70,7 @@ class Register extends Component {
                 </div>
                 <div className="form-group">
                   <input
-                    type="email"
+                    type="text"
                     className={classnames("form-control form-control-lg", {
                       "is-invalid": errors.username
                     })}
