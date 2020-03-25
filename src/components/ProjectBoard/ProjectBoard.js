@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Backlog from "./Backlog";
 import { connect } from "react-redux";
-import classnames from "classnames";
 import { getBacklog } from "../../actions/backlogActions";
 import PropTypes from "prop-types";
 
